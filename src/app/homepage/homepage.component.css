@@ -1,0 +1,234 @@
+.main-container {
+  position: absolute;
+  top:6.5%;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  width: 65%;
+  background-color: rgb(202, 212, 211);
+}
+
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  background-color: white;
+  overflow: hidden;
+}
+.right-sidenav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  background-color: white;
+  overflow: hidden;
+  right: 0%;
+  height: 100%;
+}
+
+.example-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-content { 
+    background: #fafafa;
+    width: 74%;
+    left: 5%;
+    /* top: 35%; */
+    border-radius: 5px;
+    /* overflow: auto; */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    /* position: relative; */
+    padding: 0px;
+    margin-right: 0px;
+    background-color: rgb(202, 212, 211);
+    /* scrollbar-width: 2px !important;
+    scrollbar-color: blue !important; */
+
+    /* scrollbar-face-color:#903030 !important;
+    scrollbar-arrow-color:#FFFFFF !important;
+    scrollbar-track-color:#C0B0B0 !important;
+    scrollbar-shadow-color:rgb(0,0,0) !important;
+    scrollbar-highlight-color:rgb(0,0,0) !important;
+    scrollbar-3dlight-color:#808080 !important;
+    scrollbar-darkshadow-Color:#202020 !important; */
+
+}
+
+.column {
+  float: left;
+  width: 100%;
+  padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+::ng-deep.mat-toolbar{
+  height: 20px !important;
+  max-height: 30px !important;
+  position: sticky;
+  /* position: -webkit-sticky; For macOS/iOS Safari */
+  top: 0; /* Sets the sticky toolbar to be on top */
+  z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+example-icon{
+  right: 5% !important;
+  cursor: pointer !important;
+}
+.circular--square {
+  border-radius: 50%;
+}
+
+.profilediv{
+  margin-left: 0%;
+  margin-right: 0%;
+  height: 10%; 
+  width: 80%;
+  left: 10%;
+  top: 3%;
+  background-color: rgba(231, 231, 231, 0.966);
+  border: 1px solid rgba(173, 169, 169, 0.863);
+  position: relative;
+  border-radius: 15px;
+  overflow-x: hidden; overflow-y: hidden;
+}
+.changelist{
+  border: 1.5px solid rgba(81, 131, 172, 0.884);
+  width: 210px !important;
+  overflow: hidden;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: rgba(255, 255, 255) !important;
+}
+
+.events{
+  background-color: white !important;
+  border-radius: 5px !important;
+  width: 17%!important;
+  height: 30% !important;
+  color: black !important;
+  left: 66%;
+  top: 9.5%;
+  position: absolute ;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  
+}
+.events::-webkit-scrollbar{
+  width: 20px;
+}
+
+.post-card{
+  background-color: white;
+  width: 100%;
+  height: 20% !important;
+  color: black !important;
+  position: absolute;
+  border-radius: 10px;
+  margin-top: 3%;
+  display: block;
+  position: relative
+}
+
+/* ::ng-deep.mat-form-field-underline::before{
+  color: grey !important;
+  outline-color: black !important;
+  background-color: white !important;
+}
+.mat-form-field-appearance-underline .mat-form-field-underline {
+  color: #1300ff;
+} */
+/* Font color */
+/* input.mat-input-element {
+  color: black;
+}
+ng-deep.mat-input-underline {
+  background-color: #FF0000 !important;   
+} */
+
+/* ::ng-deep .mat-focused .mat-form-field-label {
+
+  color: rgb(211, 92, 23) !important;
+ 
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  background-color: rgb(0, 136, 41) !important;
+  color: #1300ff !important;
+}  */
+
+::ng-deep.mat-form-field-ripple {
+ background-color: rgb(84, 202, 223) !important;
+ color: #1300ff !important;
+}
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.hidepost{
+  display: none !important;
+}
+
+.example-content::-webkit-scrollbar{
+  width: 20px;
+  /* background-color: #1300ff; */
+}
+
+/* .example-content::-webkit-scrollbar-track  {
+  -webkit-box-shadow: inset 0 0 6px #05B7FF;
+  -webkit-border-radius: 0px;
+  background:#CBD5D7;  
+  border-radius: 0px;
+  } */
+
+.addfriends{
+  padding: 1%;background-color: white !important;
+  border-radius: 5px !important;
+  width: 17%!important;
+  height: 55% !important;
+  color: black !important;
+  left: 66%;
+  top: 43%;
+  position: absolute ;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.addfriends::-webkit-scrollbar{
+  width: 20px;
+}
+.add{
+  color: rgb(99, 177, 241);float: right;margin-left:80%;position: absolute;cursor: pointer;
+  align-self: center;align-items: center;
+}
+.addchange{
+  color: rgb(189, 192, 187);float: right;margin-left:80%;position: absolute;cursor: pointer;
+  align-self: center;align-items: center;cursor: not-allowed;pointer-events: none;
+}
+
+.remove{
+  color: rgb(99, 177, 241);float: right;margin-left:60%;position: absolute;cursor: pointer;
+  align-self: center;align-items: center;
+}
+.removechange{
+  color: rgb(189, 192, 187);float: right;margin-left:60%;position: absolute;cursor: pointer;
+  align-self: center;align-items: center;cursor: not-allowed;pointer-events: none;
+}

@@ -1,0 +1,13 @@
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #1300ff;
+  }
+  /* Font color */
+  input.mat-input-element {
+    color: black;
+  }
+
+::ng-deep.mat-form-field-outline{
+    color: grey !important;
+    outline-color: black !important;
+    background-color: white !important;
+}

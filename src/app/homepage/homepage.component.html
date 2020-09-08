@@ -1,0 +1,234 @@
+<div style="  background-color: rgb(202, 212, 211)!important;color: #cedae1;height: 100%;width: 100%;"> 
+
+<mat-toolbar  [class.mat-elevation-z1]="isActive" style="color: rgb(0, 0, 0) !important;background-color: rgb(255, 255, 255) !important;
+ z-index:50px; min-height: 6.5% !important;  ">
+    <mat-toolbar-row >
+
+      <span style="margin-left: 2%;">Web Name</span>
+      <span style="flex:1 1 auto;"></span>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon"
+      style="padding: 0 14px;cursor: pointer;" 
+      >group_add</mat-icon>
+      <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon"
+      style="padding: 0 54px;cursor: pointer;outline: 0px;border: 0px;" (click)="logout()"
+      >login</mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+
+  <mat-sidenav-container class="main-container " >
+
+   
+    <mat-sidenav #sidenav [class.mat-elevation-z1]="isActive" mode="side" opened class="example-sidenav"  [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
+    [fixedBottomGap]="options.value.bottom" style="overflow-x: hidden; overflow-y: hidden;" >
+   
+
+        <div class="profilediv">
+          <img   [src]="profileimage" alt="Profile Image" 
+          style="width: 40px;height: 40px; margin-top: 6%;border-radius: 50%;
+           margin-left: 2%;
+          margin-bottom: 0%;position:absolute;background-color: rgba(255, 255, 255, 0.733);
+          cursor: pointer;" (click)="profilechange.click()" >
+          <input type="file" #profilechange (change)="profileuploade($event)" style="display: none;"  >
+          <label  style="color: black;width: 100%;position:absolute;margin-top: 13%;margin-left: 35%;max-lines: 0;cursor: pointer;" 
+          (click)="editname=!editname" >{{username.substring(0,12)}}</label>
+      </div>
+
+      <div *ngIf="editname" style=" height: 10%; 
+      width: 80%;
+      left: 10%;
+      margin-top: 9%;border-radius: 15px;background-color: rgb(231, 235, 238); margin-left: 10%;">
+        <input type="text" style="width: 80%;margin-top: 5%;border-radius: 5px;margin-left: 8%;outline: 0px;" [(ngModel)]="usenameedited">
+        <button style="margin-left: 40%;outline: 0px;" (click)="changename()" >ok</button>
+      </div>
+
+     
+     <div style="width:200px;margin-top: 2%;position: fixed;">
+         <mat-nav-list  style="width: 100%;">
+                <!-- <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p> -->
+          <mat-list-item  [class.changelist]="newsclick"  [class.mat-elevation-z1]="mouseover1" style="color: black;align-items: flex-end;margin: 0%;" 
+          (mouseenter)="mouseenter(1)" (mouseleave)="mouseleave(1)" (click)="newsfeedclick()"  [class.mat-elevation-z4]="newsclick"
+          [routerLink]="['/home/main']" >
+            <mat-icon class="col-sm-1" style="float:right !important;" >wysiwyg</mat-icon>
+            <label class="col-sm-8" style="color: black;align-self: center;margin-left: 5%;vertical-align: middle;top: 10%;">
+            News Feed</label>
+          </mat-list-item>
+
+          <mat-list-item  [class.changelist]="noticlick"  [class.mat-elevation-z1]="mouseover2" style="color: black;align-items: flex-end;margin: 0%;" 
+          (mouseenter)="mouseenter(2)" (mouseleave)="mouseleave(2)" (click)="notificationclick()"  [class.mat-elevation-z4]="noticlick"
+          [routerLink]="['/home/main']" >
+            <mat-icon class="col-sm-1" style="float:right !important;" >notifications</mat-icon>
+            <label class="col-sm-8" style="color: black;align-self: center;margin-left: 5%;vertical-align: middle;top: 10%;">
+            Notification</label>
+          </mat-list-item>
+          
+          <mat-list-item  [class.changelist]="msgclick"  [class.mat-elevation-z1]="mouseover3" style="color: black;align-items: flex-end;margin: 0%;" 
+          (mouseenter)="mouseenter(3)" (mouseleave)="mouseleave(3)" (click)="messageclick()"  [class.mat-elevation-z4]="msgclick"
+          [routerLink]="['/home/main']" >
+            <mat-icon class="col-sm-1" style="float:right !important;" >sms</mat-icon>
+            <label class="col-sm-8" style="color: black;align-self: center;margin-left: 5%;vertical-align: middle;top: 10%;">
+            Message</label>
+          </mat-list-item>
+
+          <mat-list-item  [class.changelist]="mktclick"  [class.mat-elevation-z1]="mouseover4" style="color: black;align-items: flex-end;margin: 0%;" 
+          (mouseenter)="mouseenter(4)" (mouseleave)="mouseleave(4)" (click)="marketclick()"  [class.mat-elevation-z4]="mktclick"
+          [routerLink]="['/home/main']" >
+            <mat-icon class="col-sm-1" style="float:right !important;" >storefront</mat-icon>
+            <label class="col-sm-8" style="color: black;align-self: center;margin-left: 5%;vertical-align: middle;top: 10%;">
+            Market </label>
+          </mat-list-item>
+
+          <mat-list-item  [class.changelist]="frdclick"  [class.mat-elevation-z1]="mouseover5" style="color: black;align-items: flex-end;margin: 0%;" 
+          (mouseenter)="mouseenter(5)" (mouseleave)="mouseleave(5)" (click)="friendclick()"  [class.mat-elevation-z4]="frdclick"
+          [routerLink]="['/home/main']" >
+            <mat-icon class="col-sm-1" style="float:right !important;" >people</mat-icon>
+            <label class="col-sm-8" style="color: black;align-self: center;margin-left: 5%;vertical-align: middle;top: 10%;">
+            Friends </label>
+          </mat-list-item>
+
+          <mat-list-item  [class.changelist]="ctclick"  [class.mat-elevation-z1]="mouseover6" style="color: black;align-items: flex-end;margin: 0%;" 
+          (mouseenter)="mouseenter(6)" (mouseleave)="mouseleave(6)" (click)="chatclick()"  [class.mat-elevation-z4]="ctclick"
+          [routerLink]="['/home/main']" >
+            <mat-icon class="col-sm-1" style="float:right !important;" >chat</mat-icon>
+            <label class="col-sm-8" style="color: black;align-self: center;margin-left: 5%;vertical-align: middle;top: 10%;">
+            Chats </label>
+          </mat-list-item>
+
+          <mat-list-item  [class.changelist]="stgclick"  [class.mat-elevation-z1]="mouseover7" style="color: black;align-items: flex-end;margin: 0%;" 
+          (mouseenter)="mouseenter(7)" (mouseleave)="mouseleave(7)" (click)="settingclick()"  [class.mat-elevation-z4]="stgclick"
+          [routerLink]="['/home/main']" >
+            <mat-icon class="col-sm-1" style="float:right !important;" >settings</mat-icon>
+            <label class="col-sm-8" style="color: black;align-self: center;margin-left: 5%;vertical-align: middle;top: 10%;">
+            Settings </label>
+          </mat-list-item>
+         
+        
+          <!-- <button mat-button style="width: 100%;">Basic</button> -->
+        </mat-nav-list>
+      </div>
+    </mat-sidenav>
+    
+    <mat-sidenav-content class="example-content" >
+     
+      <div>
+       
+      <div class="post-card container " [class.mat-elevation-z1]='isActive'
+      >
+        <label style="margin-left: 3.5%;margin-top: 3%;font-size: 20px;font-style: oblique;
+        font-family:Comic Sans MS, cursive;opacity: 0.8;">Post Somthing..</label>
+        <mat-divider style="color: black !important;background-color: rgba(184, 184, 184, 0.87);height: 1px; "></mat-divider>
+        <div>
+           
+        </div>
+        <div class="form-inline row" style="display: inline;margin-left: 5%;">
+          <img  [src]="profileimage" alt="Profile Image" 
+          style="width: 40px;height: 40px; margin-top: 1.5%; background-color: ivory; border-radius: 50%;
+         position:absolute;background-color: rgba(255, 255, 255, 0.733); 
+          " >
+         <input class="form-control " placeholder="Whats on your mind?" style="width: 50%;margin-left: 17%;margin-top: 0%;
+         background-color: rgb(238, 238, 238);" [(ngModel)]="newpost.postmessage" maxlength="80">
+
+         <button mat-mini-fab  style="opacity: 0.3;background-color: rgb(236, 244, 255) !important; color: black !important;margin-left: 3%;
+         margin-top: 2%;outline: 0px;border: 0px;" (click)="fileinput.click()"><mat-icon>perm_media</mat-icon> 
+        </button>
+        <input type="file" #fileinput style="display: none;" (change)="onFileChanged($event)">
+
+        <button mat-mini-fab  style="opacity: 0.3;background-color: rgb(236, 244, 255) !important; color: black !important;margin-left: 3%;
+        margin-top: 2%;outline: 0px;border: 0px;" (click)="uploadepost()" ><mat-icon>send</mat-icon></button>
+
+        </div>
+    </div>
+    <div [class.hidepost]="hidepost" style="background-color: white;display: block;height: 200px;width: 100%;; margin-top: 3%;
+    position: relative;border-radius: 8px;align-items: center;"
+    [class.mat-elevation-z1]='isActive'>
+    <img [src]="imageurl" alt="postimage" style="border-radius: 10px;height: 160px;width:160px ;
+    margin-top: 3%;margin-left: 20px;" >
+    <button mat-mini-fab  (click)="hidepost=!hidepost" style="outline: 0px;border: 0px;background-color: lavender;margin-right: 3%;float: right;margin-top: 2%;
+    "><mat-icon>close</mat-icon></button>
+    </div>
+
+
+    <div class="app" [class.mat-elevation-z2]='isActive' style="margin-top: 3% !important;background-color: white;
+    border-radius: 10px;overflow: auto" >
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <ng-container >
+    <div class="events" style="padding: 1%;" [class.mat-elevation-z2]='isActive'  >
+      <label style="align-self: center;align-items: center;margin-left: 5px;">Events</label>
+      <mat-divider style="color: black !important;background-color: rgba(184, 184, 184, 0.87);height: 1px; "></mat-divider>
+      <mat-list>
+          <mat-list-item  *ngFor="let mmm of friendrequestmodel">
+            <div class="row" >
+              <img [src]="mmm.requestdetails.profileimage" style="height: 35px;width: 35px;border-radius: 50%;margin-top:3%;margin-left: 5px;"  >
+              <label style="color: black;align-self: center;margin-top:6%;margin-left: 5px;font-size: 12px;max-lines: 1;overflow: hidden;height: 20px;width: 70px;"   >{{mmm.requestdetails.profilename==null?'username':mmm.requestdetails.profilename}}</label>
+              <mat-icon class="add" (click)='acceptfriends(mmm)' >check_circle_outline</mat-icon>
+              <mat-icon class="remove" (click)="deletrequest(mmm)" [class.removechange]="mmm.deletedchange">remove_circle_outline</mat-icon>
+              <mat-divider style="color: black !important;background-color: rgba(184, 184, 184, 0.87);height: 1px; "></mat-divider>
+            </div>
+          </mat-list-item>
+
+      </mat-list>
+  </div>
+
+  <div  class="addfriends"  [class.mat-elevation-z2]='isActive'  >
+    <label style="align-self: center;align-items: center;margin-left: 5px;">Add Friends</label>
+    <mat-divider style="color: black !important;background-color: rgba(184, 184, 184, 0.87);height: 1px; "></mat-divider>
+    <mat-list role="list"  >
+      <mat-list-item role="listitem" *ngFor='let users of newallusers' >
+        <div class="row">
+        <span style=" height: 7px;
+        width: 7px;
+        background-color: rgb(127, 228, 44);
+        border-radius: 50%;
+        display: inline-block;align-self: center;margin-left: 10px;"></span>
+        <img [src]="users.profileimage" style="height: 35px;width: 35px;border-radius: 50%;margin-top:3%;margin-left: 5px;"  >
+        <label style="color: black;align-self: center;margin-top:6%;margin-left: 5px;font-size: 12px;max-lines: 1;overflow: hidden;height: 20px;width: 80px;"  >{{users.profilename==null?'username':users.profilename}}</label>
+        <mat-icon class="add" [class.addchange]="users.sendfriend" (click)='addfriends(users)'>
+          add_circle_outline</mat-icon>
+        <mat-divider style="color: black !important;background-color: rgba(184, 184, 184, 0.87);height: 1px; "></mat-divider>
+      </div>
+      </mat-list-item>
+    </mat-list>
+    <label style="align-self: center;align-items: center;margin-left: 5px;">Suggested Friends</label>
+    <mat-divider style="color: black !important;background-color: rgba(184, 184, 184, 0.87);height: 1px; "></mat-divider>
+    
+
+</div>
+
+  </ng-container>
+ 
+  <mat-sidenav #sidenav [class.mat-elevation-z1]="isActive" mode="side" opened class="right-sidenav"  [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
+    [fixedBottomGap]="options.value.bottom" style="width: 15%;overflow-x: hidden; overflow-y: hidden;" >
+   
+    <mat-nav-list  style="width: 100%; position: fixed;" >
+      <label style="color: black;margin-top: 3.5%;margin-left: 10px;">Friends</label>
+      <mat-divider style="color: black !important;background-color: rgba(184, 184, 184, 0.87);height: 1px; "></mat-divider>
+      <br>
+      <mat-list-item  [class.mat-elevation-z1]="isActive" style="color: black;align-items: flex-end;margin: 0%;"
+      *ngFor='let item of allusers' 
+      >
+       <div class="row">
+        <span style=" height: 7px;
+        width: 7px;
+        background-color: rgb(127, 228, 44);
+        border-radius: 50%;
+        display: inline-block;align-self: center;margin-left: 10px;"></span>
+       <img [src]="item.profileimage" style="height: 35px;width: 35px;border-radius: 50%;margin-top:3%;margin-left: 5px;"  >
+      <label style="color: black;align-self: center;margin-top:6%;margin-left: 5px;max-lines: 1;overflow: hidden;height: 20px;width: 100px;"  >{{item.profilename==null?'username':item.profilename}}</label>
+      <!-- <mat-icon style="color: greenyellow;height: 5px !important;width: 5px !important;">fiber_manual_record</mat-icon> -->
+      
+    </div>
+      </mat-list-item> 
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  
+</div>
